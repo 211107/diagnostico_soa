@@ -18,30 +18,30 @@ connection.connect((err) => {
   console.log('Conexión exitosa a la base de datos');
 
   // Sentencias SQL para crear las tablas
-  const createTableTutores = `CREATE TABLE IF NOT EXISTS Tutores (
+  const createTableTutores = `CREATE TABLE IF NOT EXISTS tutores (
     tutor_id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(255) NOT NULL
   )`;
 
-  const createTableAlumnos = `CREATE TABLE IF NOT EXISTS Alumnos (
+  const createTableAlumnos = `CREATE TABLE IF NOT EXISTS alumnos (
     alumno_id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(255) NOT NULL,
     tutor_id INT,
-    FOREIGN KEY (tutor_id) REFERENCES Tutores(tutor_id)
+    FOREIGN KEY (tutor_id) REFERENCES tutores(tutor_id)
   )`;
 
-  const createTableMaterias = `CREATE TABLE IF NOT EXISTS Materias (
+  const createTableMaterias = `CREATE TABLE IF NOT EXISTS materias (
     materia_id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(255) NOT NULL,
     alumno_id INT,
-    FOREIGN KEY (alumno_id) REFERENCES Alumnos(alumno_id)
+    FOREIGN KEY (alumno_id) REFERENCES alumnos(alumno_id)
   )`;
 
-  const createTableAlumnosMaterias = `CREATE TABLE IF NOT EXISTS Alumnos_Materias (
+  const createTableAlumnosMaterias = `CREATE TABLE IF NOT EXISTS alumnos_materias (
     alumno_id INT,
     materia_id INT,
-    FOREIGN KEY (alumno_id) REFERENCES Alumnos(alumno_id),
-    FOREIGN KEY (materia_id) REFERENCES Materias(materia_id),
+    FOREIGN KEY (alumno_id) REFERENCES alumnos(alumno_id),
+    FOREIGN KEY (materia_id) REFERENCES materias(materia_id),
     PRIMARY KEY (alumno_id, materia_id)
   )`;
 
