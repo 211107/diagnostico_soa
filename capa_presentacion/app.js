@@ -8,6 +8,9 @@ const app = express();
 // Middleware para parsear el cuerpo de las solicitudes como JSON
 app.use(bodyParser.json());
 
+
+
+
 // Endpoint para obtener todos los tutores
 app.get('/tutores', (req, res) => {
     servicios.obtenerTodosLosTutores((error, tutores) => {
@@ -155,7 +158,8 @@ app.post('/materias', (req, res) => {
 
 
 // Puerto en el que se ejecutará el servidor
+// Puerto en el que se ejecutará el servidor
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`Servidor escuchando en el puerto ${PORT}`);
 });
