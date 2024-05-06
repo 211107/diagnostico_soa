@@ -1,7 +1,6 @@
 const mysql = require('mysql');
 require('dotenv').config();
 
-// Configuración de la conexión a la base de datos
 const connection = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
@@ -9,7 +8,6 @@ const connection = mysql.createConnection({
   database: process.env.DB_NAME
 });
 
-// Conexión a la base de datos
 connection.connect((err) => {
   if (err) {
     console.error('Error al conectar a la base de datos:', err);
@@ -17,7 +15,7 @@ connection.connect((err) => {
   }
   console.log('Conexión exitosa a la base de datos');
 
-  // Sentencias SQL para crear las tablas
+
   const createTableTutores = `CREATE TABLE IF NOT EXISTS tutores (
     tutor_id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(255) NOT NULL

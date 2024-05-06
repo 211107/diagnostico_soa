@@ -77,15 +77,6 @@ function actualizarTutorDeAlumno(alumnoId, tutorId, callback) {
     });
 }
 
-
-
-
-
-
-
-
-// Más funciones según sea necesario...
-
 module.exports = {
     obtenerTodosLosAlumnos,
     obtenerAlumnosDeTutor,
@@ -93,5 +84,5 @@ module.exports = {
     asignarAlumnoATutor,
     obtenerAlumnoPorId,
     actualizarTutorDeAlumno
-    // Agrega más funciones según sea necesario
+   
 };
